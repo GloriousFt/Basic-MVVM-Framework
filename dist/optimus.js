@@ -25,10 +25,11 @@ var Provider = {
     },
 
     get: function (name, locals) {
+        var provider;
         if (this._cache[name]) {
             return this._cache[name];
         }
-        var provider = this._providers[name];
+        provider = this._providers[name];
         if (!provider || typeof provider !== 'function') {
             return null;
         }
@@ -70,9 +71,9 @@ var DOMCompiler = {
         this.compile(document.children[0], Provider.get('$rootScope'));
     },
     compile: function (el, scope) {
-        var dirs = this._getElDirectives(el);
-        var dir;
-        var scopeCreated;
+        var dirs = this._getElDirectives(el),
+            dir,
+            scopeCreated;
         dirs.forEach(function (d) {
             dir = Provider.get(d.name + Provider.DIRECTIVES_SUFFIX);
             if (dir.scope && !scopeCreated) {
@@ -86,8 +87,8 @@ var DOMCompiler = {
         }, this);
     },
     _getElDirectives: function (el) {
-        var attrs = el.attributes;
-        var result = [];
+        var attrs = el.attributes,
+            result = [];
         for (var i = 0; i < attrs.length; i += 1) {
             if (Provider.get(attrs[i].name + Provider.DIRECTIVES_SUFFIX)) {
                 result.push({

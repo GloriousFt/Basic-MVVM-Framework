@@ -1,0 +1,24 @@
+{
+  "name": "optimus_mvvm_project",
+  "version": "1.0.0",
+  "description": "a basic mvvm framework",
+  "main": "dist/optimus.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GloriousFt/Basic-MVVM-Framework.git"
+  },
+  "author": "Tianyi Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GloriousFt/Basic-MVVM-Framework/issues"
+  },
+  "homepage": "https://github.com/GloriousFt/Basic-MVVM-Framework#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0"
+  }
+}
