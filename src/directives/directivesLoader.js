@@ -1,12 +1,16 @@
 define (function (require) {
     var controller = require('directives/controller'),
         model = require('directives/model'),
-        bind = require('directives/bind');
+        bind = require('directives/bind'),
+        click = require('directives/click'),
+        show = require('directives/show');
     
     var directives = {
         controller: controller,
         model: model,
-        bind: bind
+        bind: bind,
+        click: click,
+        show: show
     };
     
     var loader = {

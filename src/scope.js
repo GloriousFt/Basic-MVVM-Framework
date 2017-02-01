@@ -23,26 +23,26 @@ define (function() {
 
     Scope.prototype.eval = function (exp) {
         var val;
-        if (typeof exp === 'function') {
-            val = exp.call(this);
+        if (typeof this[exp] === 'function') {
+            val = this[exp].call(this);
         } else {
             val = this[exp];
         }
         return val;
     };
 
-    Scope.prototype.watcher = function (el, exp) {
+    Scope.prototype.watcher = function (el, exp, getter, setter) {
+        var prop = exp;
         this.watchers.push({
             exp: exp,
             el: el
         });
-        Object.defineProperty(this, exp, {
-            get: function () {
-                return exp;
-            },
-            set: function (value) {
-                el.innerHTML = value;
-            }
+        if (!exp) {
+            return;
+        }
+        Object.defineProperty(this, prop, {
+            get: getter,
+            set: setter
         });
     };
     

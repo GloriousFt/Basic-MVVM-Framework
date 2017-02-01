@@ -5,20 +5,31 @@
     <title>MVVM Demo</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/demo.css" rel="stylesheet">
+    <style>
+        .pt-hidden {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container" pt-controller="mainCtrl">
         <form class="form-horizontal first-line">
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="examDataBinding">数据绑定</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input id="examDataBinding" class="form-control" type="text" placeholder="输入一些文本" pt-model="info">
+                </div>
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-default" type="button" pt-click="changeText">替换文本</button>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">您输入的是</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8" pt-show="isDisplayed">
                     <p class="form-control-static" pt-bind="info"></p>
+                </div>
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-default" type="button" pt-click="controlDisplay">控制显示</button>
                 </div>
             </div>
         </form>
@@ -26,7 +37,5 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/requirejs/require.js" data-main="js/config"></script>
-    <!--<script src="dist/optimus_demo.js"></script>-->
-    <!--<script src="js/demo.js"></script>-->
 </body>
 </html>
