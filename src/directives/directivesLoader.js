@@ -3,24 +3,26 @@ define (function (require) {
         model = require('directives/model'),
         bind = require('directives/bind'),
         click = require('directives/click'),
-        show = require('directives/show');
-    
-    var directives = {
-        controller: controller,
-        model: model,
-        bind: bind,
-        click: click,
-        show: show
-    };
+        show = require('directives/show'),
+        hide = require('directives/hide');
     
     var loader = {
+
+        directives: {
+            controller: controller,
+            model: model,
+            bind: bind,
+            click: click,
+            show: show,
+            hide: hide
+        },
         
-        provider : {},
+        provider: {},
         
         initDefaultConfig: function(provider) {
             this.provider = provider;
-            for (var name in directives) {
-                this.registerDirective(name, directives[name]);
+            for (var name in this.directives) {
+                this.registerDirective(name, this.directives[name]);
             }
         },
 

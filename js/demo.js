@@ -1,6 +1,4 @@
-define (function(require) {
-    var Provider = require('provider');
-    Provider.controller('mainCtrl', function ($scope) {
+OPTIMUS.controller('mainCtrl', function ($scope) {
         $scope.isDisplayed = true;
         $scope.info = '';
         $scope.changeText = function() {
@@ -11,6 +9,5 @@ define (function(require) {
         };
     });
 
-    // start the engine
-    Provider.bootstrap();
-});
+// start the engine
+OPTIMUS.bootstrap();

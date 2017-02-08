@@ -1,5 +1,4 @@
 define(function () {
-    
     var controller = {
         scope: true,
         link: function (el, scope, exp, provider) {

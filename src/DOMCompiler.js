@@ -1,6 +1,6 @@
 define(function () {
 
-    var DOMCompiler = {
+    var compiler = {
         
         provider: {},
         
@@ -41,5 +41,5 @@ define(function () {
         }
     };
     
-    return DOMCompiler;
+    return compiler;
 });

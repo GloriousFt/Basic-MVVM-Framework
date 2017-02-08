@@ -17,7 +17,7 @@ define(function () {
                 function () {
                     return scope[newProp];
                 },
-                function(value) {
+                function (value) {
                     scope[newProp] = value;
                     if (value) {
                         el.classList.add(CLASSNAME);
