@@ -9,7 +9,9 @@ define (function(require) {
         CONTROLLERS_SUFFIX: 'Controller',
 
         _providers: {},
-        _cache: { $rootScope: new Scope() },
+        _cache: { 
+            $rootScope: new Scope() 
+        },
 
         directive: function (name, fn) {
             this._register(name + this.DIRECTIVES_SUFFIX, fn);

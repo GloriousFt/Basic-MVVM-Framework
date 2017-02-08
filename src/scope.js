@@ -1,6 +1,9 @@
 define (function() {
     // Scope
     var Scope = function (parent, id) {
+        
+        var PRIVATE_PREFIX = '__';
+        
         this.watchers = [];
         this.children = [];
         this.parent = parent;

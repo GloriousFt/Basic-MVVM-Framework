@@ -1,5 +1,5 @@
 define(function () {
-    var show = {
+    var hide = {
         scope: false,
         link: function (el, scope, exp, provider) {
             var CLASSNAME = 'pt-hidden',
@@ -8,9 +8,9 @@ define(function () {
             scope[newProp] = value;
 
             if (value) {
-                el.classList.remove(CLASSNAME);
-            } else {
                 el.classList.add(CLASSNAME);
+            } else {
+                el.classList.remove(CLASSNAME);
             }
 
             scope.watcher(el, exp,
@@ -20,14 +20,14 @@ define(function () {
                 function(value) {
                     scope[newProp] = value;
                     if (value) {
-                        el.classList.remove(CLASSNAME);
-                    } else {
                         el.classList.add(CLASSNAME);
+                    } else {
+                        el.classList.remove(CLASSNAME);
                     }
                 }
             );
         }
     };
 
-    return show;
+    return hide;
 });

@@ -3,7 +3,7 @@ define (function () {
         scope: false,
         
         link: function (el, scope, exp, provider) {
-            var newProp = '_' + exp;
+            var newProp = scope.PRIVATE_PREFIX + exp;
             scope[newProp] = scope.eval(exp);
 
             el.innerHTML = scope.eval(exp);
