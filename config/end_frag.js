@@ -1,3 +1,0 @@
-    return yne_BulbEditor;
-
-}));
