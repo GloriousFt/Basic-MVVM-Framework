@@ -10,7 +10,7 @@ define (function(require) {
 
         _providers: {},
         _cache: { 
-            $rootScope: new Scope() 
+            $rootScope: new Scope()
         },
 
         directive: function (name, fn) {

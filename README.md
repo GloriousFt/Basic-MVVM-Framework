@@ -2,11 +2,66 @@
 
 一个拥有简单指令和基本功能的MVVM前端框架。
 
+这是学习MVVM Front-end框架过程中做的一个Demo, 基本是顺着Angular做下来的, 还有很多指令待完成。
+
+项目是用模块化方式写的,用require.js来管理项目模块依赖。
+
 ## How to Use 如何使用
 
-clone下项目,找到dist文件夹,其中的optimus.js就是目标文件。
+1. 可以在build后直接在dist文件夹中找到optimus_dist.js, 这样会暴露出来一个`OPTIMUS`作为API。
 
-在HTML中引入这个js文件。以下是在bootstrap下的一个使用demo。
+build方法:
+
+`grunt dev`, 会直接build `optimus_dist.js`到dist文件夹中。
+
+使用方法:
+
+HTML中引入optimus_dist.js, 然后再继续写js就可以了。
+
+```javascript
+OPTIMUS.controller('mainCtrl', function ($scope) {
+    // Codes Here!
+    ...
+});
+
+// start the engine
+OPTIMUS.bootstrap();
+```
+
+2. 如果是模块化开发, 不想直接使用, 则clone项目, src文件夹下的即为代码。
+
+clone后先`bower install`安装第三方lib等,再`npm install`安装grunt的依赖。
+
+## Codes 代码结构
+
+```
+.
+├── Gruntfile.js             // Grunt配置文件
+├── dist                     // Build 之后的目标文件夹
+├── demo.html                // Demo html
+├── css                      // Demo 的css文件夹
+│   └── demo.css
+├── js                       // Demo 的js文件夹
+│   ├── config.js            // 用require.js的配置入口文件
+│   ├── demo.js              // 普通模式下的demo的javascript文件
+│   └── demo_require.js      // require.js下的demo的javascript文件
+└── src
+     ├── OPTIMUS.js                 // 项目入口文件, 负责注册、调用和获取指令。
+     ├── DOMCompiler.js             // DOM操作器, 遍历DOM并存储DOM中的各个指令。
+     ├── directives                 // 各个指令
+     │   ├── directivesLoader.js    // 指令装载的文件, 负责将各个指令初始化。
+     │   ├── click.js
+     │   ├── controller.js
+     │   └── ...
+     └── scope.js             // scope是作用域, 负责给每个指令进行作用域分配。
+
+**DO NOT USE IT in PRODUCTION**
+
+## Example 示例
+
+项目中的demo.html可能会有更新。
+
+在HTML中引入这个optimus_dist.js文件。以下是在bootstrap下的一个使用demo, 所以会有jquery等不必要的引用。
 
 ```html
 <!DOCTYPE html>
@@ -36,7 +91,7 @@ clone下项目,找到dist文件夹,其中的optimus.js就是目标文件。
     </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="dist/optimus.js"></script>
+    <script src="dist/optimus_dist.js"></script>
     <script src="js/demo.js"></script>
 </body>
 </html>
@@ -45,12 +100,12 @@ clone下项目,找到dist文件夹,其中的optimus.js就是目标文件。
 其中optimus.js即为框架文件,在demo.js中启动框架即可。
 
 ```javascript
-Provider.controller('mainCtrl', function ($scope) {
+OPTIMUS.controller('mainCtrl', function ($scope) {
     $scope.info = '';
 });
 
 // start the engine
-Provider.bootstrap();
+OPTIMUS.bootstrap();
 ```
 
 ## Directives 指令
@@ -58,10 +113,13 @@ Provider.bootstrap();
 目前支持指令有:
 
 指令名称          | 说明
------------------ | ----------------------------------
+---------------- | ----------------------------------
 pt-controller    | 说明controller的作用范围
 pt-bind          | 绑定变量到指定HTML标签中显示数据
 pt-model         | 将输入值绑定到变量中
+pt-click         | click事件绑定
+pt-show          | 根据变量值来显示当前标签
+pt-hide          | 根据变量值来隐藏当前标签
 
 ## Supports 支持
 

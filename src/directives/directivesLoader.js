@@ -4,7 +4,8 @@ define (function (require) {
         bind = require('directives/bind'),
         click = require('directives/click'),
         show = require('directives/show'),
-        hide = require('directives/hide');
+        hide = require('directives/hide'),
+        repeat = require('directives/repeat');
     
     var loader = {
 
@@ -14,7 +15,8 @@ define (function (require) {
             bind: bind,
             click: click,
             show: show,
-            hide: hide
+            hide: hide,
+            repeat: repeat
         },
         
         provider: {},
