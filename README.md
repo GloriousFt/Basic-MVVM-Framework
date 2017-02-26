@@ -6,9 +6,11 @@
 
 项目是用模块化方式写的,用require.js来管理项目模块依赖。
 
+**DO NOT USE IT in PRODUCTION**
+
 ## How to Use 如何使用
 
-1. 可以在build后直接在dist文件夹中找到optimus_dist.js, 这样会暴露出来一个`OPTIMUS`作为API。
+可以在build后直接在dist文件夹中找到optimus_dist.js, 这样会暴露出来一个`OPTIMUS`作为API。
 
 build方法:
 
@@ -28,13 +30,13 @@ OPTIMUS.controller('mainCtrl', function ($scope) {
 OPTIMUS.bootstrap();
 ```
 
-2. 如果是模块化开发, 不想直接使用, 则clone项目, src文件夹下的即为代码。
+如果是模块化开发, 不想直接使用, 则clone项目, src文件夹下的即为代码。
 
 clone后先`bower install`安装第三方lib等,再`npm install`安装grunt的依赖。
 
 ## Codes 代码结构
 
-```
+```javascript
 .
 ├── Gruntfile.js             // Grunt配置文件
 ├── dist                     // Build 之后的目标文件夹
@@ -55,7 +57,7 @@ clone后先`bower install`安装第三方lib等,再`npm install`安装grunt的�
      │   └── ...
      └── scope.js             // scope是作用域, 负责给每个指令进行作用域分配。
 
-**DO NOT USE IT in PRODUCTION**
+```
 
 ## Example 示例
 
